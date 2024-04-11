@@ -13,7 +13,6 @@ class ColorPaletteApp:
         self.colors = {"main_color": self.color}
         self.color_history = []
 
-        # Create UI elements
         self.create_widgets()
 
     def create_widgets(self):
@@ -21,11 +20,9 @@ class ColorPaletteApp:
         pick_button = tk.Button(self.root, text="Pick Color", command=self.pick_color)
         pick_button.pack(pady=10)
 
-        # Color display
         self.color_display = tk.Label(self.root, bg=self.color, width=20, height=10)
         self.color_display.pack(side=tk.LEFT, padx=20)
-
-        # Color properties sliders
+  
         self.hue_label = tk.Label(self.root, text="Hue:")
         self.hue_label.pack(anchor=tk.W, padx=20)
         self.hue_scale = tk.Scale(self.root, from_=0, to=360, orient='horizontal', command=self.update_color)
@@ -44,14 +41,12 @@ class ColorPaletteApp:
         self.lightness_scale.pack(anchor=tk.W, padx=20)
         self.lightness_scale.set(100)
 
-        # Color history listbox
         self.history_label = tk.Label(self.root, text="Color History:")
         self.history_label.pack(anchor=tk.W, padx=20)
         self.history_listbox = tk.Listbox(self.root, width=30, height=5)
         self.history_listbox.pack(anchor=tk.W, padx=20)
         self.update_history_list()
 
-        # Save palette button
         save_button = tk.Button(self.root, text="Save Palette", command=self.save_palette)
         save_button.pack(side=tk.RIGHT, pady=10, padx=20)
 
@@ -93,6 +88,5 @@ def main():
     app = ColorPaletteApp(root)
     root.mainloop()
 
-if __name__ == "__main__":
-    main()
+main()
 
